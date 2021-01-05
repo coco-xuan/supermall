@@ -35,7 +35,7 @@
 
     import { gethome, gethomelist } from 'network/home';
     import { debounce } from 'components/utils.js'
-
+    import { imgLoadMix, backTop } from 'components/mixin.js'
 
 
     export default {
@@ -50,6 +50,7 @@
             Scroll,
             BackTop
         },
+        mixins: [imgLoadMix],
         data() {
             return {
                 banners: [],
@@ -82,12 +83,15 @@
         },
         mounted() {
 
-            // debounce()函数是防抖函数
-            const refresh = debounce(this.$refs.scroll.refresh, 200)
-            this.$bus.$on('loadOver', () => {
+            // // debounce()函数是防抖函数
+            // const refresh = debounce(this.$refs.scroll.refresh, 200)
+            // this.itemImagload = () => {
+            //     refresh()
+            // }
+            // this.$bus.$on('loadOver', this.itemImagload)
 
-                refresh() //调用防抖函数
-            })
+
+            // 因为使用了mixins混入,可以减少代码的复用
 
         },
         destroyed() {
@@ -99,6 +103,8 @@
         },
         deactivated() {
             this.saveY = this.$refs.scroll.scroll.y
+
+            this.$bus.$off('loadOver', this.itemImgload)
 
         },
         methods: {
@@ -136,10 +142,8 @@
                 } else {
                     this.isShowBackTop = false
                 }
-
                 //tabcontrol的吸附效果
                 this.istabShow = (-position.y) > this.offsetTop
-
 
             },
             loadMore() {

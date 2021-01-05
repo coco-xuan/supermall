@@ -10,8 +10,6 @@
                     :class='{color: index===currentIndex}'>
                     {{item}}
                 </div>
-
-
             </div>
 
         </nav-bar>
@@ -35,7 +33,8 @@
         },
         methods: {
             titClick(index) {
-                this.currentIndex = index
+                this.currentIndex = index;
+                this.$emit('titClick', index)
             },
             backClick() {
                 this.$router.back()

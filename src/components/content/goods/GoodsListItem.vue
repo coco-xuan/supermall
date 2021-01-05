@@ -1,6 +1,6 @@
 <template>
     <div class="goods-item" @click='itemClick'>
-        <img :src="goodsItem.show.img" alt="" @load='loadOver'>
+        <img v-lazy='showImage' alt="" @load='loadOver'>
         <div class="goods-info">
             <p>{{goodsItem.title}}</p>
             <span class="price">{{goodsItem.price}}</span>
@@ -21,9 +21,15 @@
                 }
             }
         },
+        computed: {
+            showImage() {
+                return this.goodsItem.image || this.goodsItem.show.img
+            }
+        },
         methods: {
             //图片加载事件的监听
             loadOver() {
+
                 this.$bus.$emit('loadOver')
             },
             itemClick() {

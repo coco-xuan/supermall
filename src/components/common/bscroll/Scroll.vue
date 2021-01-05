@@ -36,11 +36,12 @@
                 click: true
             });
             this.scroll.on('scroll', (position) => {
-                this.$emit('scroll', position)
+                this.$emit('scroll', position);
+                // console.log(123);
             })
 
             this.scroll.on('pullingUp', () => {
-                console.log('加载更多');
+                // console.log('加载更多');
                 this.$emit('pullingUp');
 
             })
@@ -57,7 +58,7 @@
 
             },
             refresh() {
-
+                // console.log(123);
                 this.scroll && this.scroll.refresh()
             }
         }

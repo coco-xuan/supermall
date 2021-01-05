@@ -1,6 +1,7 @@
 <template>
     <div class="tab-control">
-        <div class="spn" v-for="(item,index) in titles" :class="{active: index === somenum}" @click=activeClick(index)>
+        <div class="spn" v-for="(item,index) in titles" :class="{active: index === somenum}"
+            @click="activeClick(index)">
             <span>{{item}}</span>
         </div>
 
@@ -54,11 +55,11 @@
 
     .active {
         transition: all .1s;
-        color: var(--color-height-text)
+        color: var(--color-high-text);
     }
 
     .active span {
         transition: all .1s;
-        border-bottom: 3px solid var(--color-height-text);
+        border-bottom: 3px solid var(--color-high-text);
     }
 </style>

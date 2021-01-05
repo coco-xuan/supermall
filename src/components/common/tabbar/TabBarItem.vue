@@ -23,7 +23,7 @@
             path: String,
             activeColor: {
                 type: String,
-                default: 'skyblue'
+                default: '#1296db'
             }
 
         },
@@ -54,10 +54,8 @@
 
 <style scoped>
     .tab-bar-item {
-
         text-align: center;
         height: 49px;
-
         flex: 1;
         font-size: 14px;
     }
