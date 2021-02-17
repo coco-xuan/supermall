@@ -7,7 +7,6 @@ export function debounce(func, delay) {
             func.apply(this, args)
         }, delay)
 
-
     }
 }
 

@@ -9,8 +9,8 @@
                 <i class="icon shop"></i>
                 <span class="text">店铺</span>
             </div>
-            <div>
-                <i class="icon select"></i>
+            <div @click="souChang">
+                <i class=" icon" :class="{activesou : isSou}"></i>
                 <span class="text">收藏</span>
             </div>
         </div>
@@ -24,9 +24,17 @@
 <script>
     export default {
         name: 'DetialBottom',
+        data() {
+            return {
+                isSou: false
+            }
+        },
         methods: {
             addCart() {
                 this.$emit('addCart')
+            },
+            souChang() {
+                this.isSou = !this.isSou
             }
         }
     }
@@ -64,6 +72,11 @@
         height: 26px;
         margin: 10px auto 3px;
         background: url("~assets/img/detail/detail_bottom.png") 0 0/100%;
+    }
+
+    .bar-left .activesou {
+        background-position: 0 -31px;
+
     }
 
     .bar-left .service {

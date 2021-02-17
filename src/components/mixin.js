@@ -10,10 +10,9 @@ export const imgLoadMix = {
     }
     ,
     mounted() {
-        this.refresh = debounce(this.$refs.scroll.refresh, 200)
+        this.refresh = debounce(this.$refs.scroll.refresh, 100)
         this.itemImagload = () => {
             this.refresh();
-
         }
         this.$bus.$on('loadOver', this.itemImagload)
     }
