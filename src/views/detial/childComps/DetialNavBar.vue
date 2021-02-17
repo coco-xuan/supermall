@@ -58,7 +58,7 @@
     }
 
     .back {
-        margin-top: 4px;
+        margin-top: 2px;
     }
 
     .back img {
