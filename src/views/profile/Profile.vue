@@ -4,7 +4,6 @@
             <div slot="center">我的</div>
         </nav-bar>
 
-        <div class="box"></div>
     </div>
 </template>
 
