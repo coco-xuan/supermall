@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+
 const originalPush = VueRouter.prototype.replace;
 VueRouter.prototype.replace = function replace(location) {
     return originalPush.call(this, location).catch(err => err)
@@ -12,6 +13,7 @@ const Car = () => import('views/car/Car');
 const Category = () => import('views/category/Category')
 const Profile = () => import('views/profile/Profile')
 const Detial = () => import('views/detial/Detial')
+const Login = () => import('views/Login')
 // 1.安装插件
 
 Vue.use(VueRouter)
@@ -33,11 +35,21 @@ const routes = [
         component: Category
     }, {
         path: '/profile',
-        component: Profile
+        component: Profile,
+        beforeEnter: (to, form, next) => {
+            if (to.path === '/login') return next();
+            const tokenLogen = window.sessionStorage.getItem('token')
+            if (!tokenLogen) return next('/login')
+            next()
+        }
     },
     {
         path: '/detial/:iid',
         component: Detial
+    },
+    {
+        path: '/login',
+        component: Login
     }
 
 
@@ -52,4 +64,11 @@ const router = new VueRouter(
         mode: 'history'
     }
 )
+
+// 挂载路由守卫
+
+
+
+
+
 export default router

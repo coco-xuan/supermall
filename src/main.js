@@ -2,6 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import Vant from 'vant'
+import './plugins/index.js'
 
 
 //解决移动端300毫秒延迟
@@ -19,6 +21,7 @@ Vue.use(vueLazyLoad, {
 
 
 Vue.use(toast);
+// Vue.use(Vant)
 FastClick.attach(document.body);
 
 

@@ -30,7 +30,7 @@
             imgLoad() {
                 if (++this.counter === this.cateItemInfo.length) {
                     this.$emit('imgLoad');
-                    console.log('加载完毕');
+                    // console.log('加载完毕');
 
                 }
 

@@ -6,12 +6,12 @@
 
         <div class="contenttt">
 
-            <scroll ref='scroll' class="content">
+            <scroll ref='scroll' class="content" @pullingUp="pullingUp" :pullUpLoad="true">
 
                 <cate-goods :cate-item='cateList' @itemCateClick='itemCateClick' />
 
             </scroll>
-            <scroll ref='scrolls' class="contents">
+            <scroll ref='scrolls' class="contents" :pullUpLoad="true" @pullingUp="pullingUps">
 
                 <cate-goods-item :cate-item-info='cateItemInfo' @imgLoad='imgLoad' />
 
@@ -48,31 +48,46 @@
             CateGoodsItem
 
         },
+
         activated() {
-            this.$refs.scrolls.refresh()
-            this.$refs.scroll.refresh()
+            // this.$refs.scrolls.refresh()
+            // this.$refs.scroll.refresh()
+            // const nums = window.localStorage.getItem('catenum')
+            // console.log(nums);
 
         },
 
         created() {
             getCategory().then(res => {
+
                 const data = res.data.category
+                // console.log(data);
                 this.cateList = data.list
-                getSubcategory(this.cateList[this.currtIndex].maitKey).then(res => { this.cateItemInfo = res.data.list })
+                getSubcategory(this.cateList[this.currtIndex].maitKey).then(res => {
+                    this.cateItemInfo = res.data.list
+                    // console.log(res);
+                })
             });
 
         },
         methods: {
             itemCateClick(index) {
-                this.$refs.scrolls.refresh()
                 this.currtIndex = index
                 getSubcategory(this.cateList[this.currtIndex].maitKey).then(res => { this.cateItemInfo = res.data.list })
-                this.$refs.scrolls.scrollTo(0, 0, 0)
+                this.$refs.scrolls.scrollTo(0, 0, 0);
                 this.$refs.scrolls.refresh()
 
             },
             imgLoad() {
                 this.$refs.scrolls.refresh()
+            },
+            pullingUp() {
+                this.$refs.scroll.refresh()
+                // console.log('加载');
+            },
+            pullingUps() {
+                this.$refs.scrolls.refresh()
+                // console.log('加载');
             }
         }
 

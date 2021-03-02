@@ -13,7 +13,7 @@
 
             <home-recommend-view :recommends='recommends' />
             <home-feature />
-            <tab-control :titles="['潮流','精选','精品']" @tabClick="tabClick" ref='tabControl2'>
+            <tab-control :titles="['潮流','精选','精品']" @tabClick="tabClick" ref='tabControl2' class="bgc">
             </tab-control>
             <goods-list :goods="shoeGoods"></goods-list>
         </scroll>
@@ -153,7 +153,7 @@
             //监听swiper图片加载完毕，进行tabControl的吸附效果
             swiperImgLoad() {
                 this.offsetTop = this.$refs.tabControl2.$el.offsetTop
-                console.log(this.offsetTop);
+                // console.log(this.offsetTop);
             },
 
 
@@ -204,8 +204,13 @@
 
     .fixed {
         position: relative;
+        background-color: #fff;
 
         z-index: 2;
+    }
+
+    .bgc {
+        background-color: #fff;
     }
 
     .content {
@@ -213,6 +218,7 @@
         top: 43.8px;
         bottom: 49px;
         overflow: hidden;
+        background-color: #fff;
     }
 
     /* .content {
