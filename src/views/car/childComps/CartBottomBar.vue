@@ -31,7 +31,6 @@
                 //     // 有部分选中或者都没选中，通过点击变为全选
                 //     this.cartList.forEach(item => item.checked = true)
                 // }
-
                 // 三元表达式进行简化
                 this.isSeleterAll ? this.cartList.forEach(item => item.checked = false) : this.cartList.forEach(item => item.checked = true)
 

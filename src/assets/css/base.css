@@ -2,7 +2,8 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0; }
+  padding: 0; 
+  -webkit-overflow-scrolling: touch;overflow-scrolling: touch;}
 /* :root -> 获取根元素 */
 
 :root {

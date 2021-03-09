@@ -82,20 +82,16 @@
             }
         },
         mounted() {
-
             // // debounce()函数是防抖函数
             // const refresh = debounce(this.$refs.scroll.refresh, 200)
             // this.itemImagload = () => {
             //     refresh()
             // }
             // this.$bus.$on('loadOver', this.itemImagload)
-
-
             // 因为使用了mixins混入,可以减少代码的复用
-
         },
         destroyed() {
-            console.log('销毁');
+            // console.log('销毁');
         },
         activated() {
             this.$refs.scroll.scrollTo(0, this.saveY, 0);
@@ -127,10 +123,6 @@
 
             },
 
-
-
-
-
             backClick() {
                 this.$refs.scroll.scrollTo(0, 0)
 
@@ -148,15 +140,12 @@
             },
             loadMore() {
                 this.gethomelist(this.currentType);
-
             },
             //监听swiper图片加载完毕，进行tabControl的吸附效果
             swiperImgLoad() {
                 this.offsetTop = this.$refs.tabControl2.$el.offsetTop
                 // console.log(this.offsetTop);
             },
-
-
             /**
             * 网络请求相关的方法
             */
@@ -171,9 +160,7 @@
                 gethomelist(type, page).then(res => {
                     this.goods[type].list.push(...res.data.list);
                     this.goods[type].page += 1;
-
                     this.$refs.scroll.finishPullUp()
-
                 })
             }
 

@@ -29,7 +29,6 @@
         methods: {
             //图片加载事件的监听
             loadOver() {
-
                 this.$bus.$emit('loadOver')
             },
             itemClick() {

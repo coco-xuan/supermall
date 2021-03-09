@@ -1,8 +1,8 @@
 //vue.config.js
-const BASE_URL = process.env.NODE_ENV === 'production' ? '/vue_supermall/' : ''
+// const BASE_URL = process.env.NODE_ENV === 'production' ? '/vue_supermall/' : ''
 
 module.exports = {
-    publicPath: BASE_URL,
+    // publicPath: BASE_URL,
     configureWebpack: {
         resolve: {
 

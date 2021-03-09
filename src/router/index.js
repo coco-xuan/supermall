@@ -8,12 +8,12 @@ VueRouter.prototype.replace = function replace(location) {
 };
 
 
-const Home = () => import('views/home/Home')
-const Car = () => import('views/car/Car');
-const Category = () => import('views/category/Category')
-const Profile = () => import('views/profile/Profile')
-const Detial = () => import('views/detial/Detial')
-const Login = () => import('views/Login')
+const Home = () => import( /*webpackChunkName: "home_login_detial" */ 'views/home/Home')
+const Car = () => import(/*webpackChunkName: "car" */'views/car/Car');
+const Category = () => import(/*webpackChunkName: "category" */'views/category/Category')
+const Profile = () => import(/*webpackChunkName: "profile" */'views/profile/Profile')
+const Detial = () => import(/*webpackChunkName: "home_login_detial" */ 'views/detial/Detial')
+const Login = () => import(/*webpackChunkName: "home_login_detial" */ 'views/Login')
 // 1.安装插件
 
 Vue.use(VueRouter)

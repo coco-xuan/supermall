@@ -59,7 +59,6 @@
 
         created() {
             getCategory().then(res => {
-
                 const data = res.data.category
                 // console.log(data);
                 this.cateList = data.list
@@ -69,13 +68,15 @@
                 })
             });
 
+
         },
+
         methods: {
             itemCateClick(index) {
                 this.currtIndex = index
                 getSubcategory(this.cateList[this.currtIndex].maitKey).then(res => { this.cateItemInfo = res.data.list })
                 this.$refs.scrolls.scrollTo(0, 0, 0);
-                this.$refs.scrolls.refresh()
+                this.pullingUps()
 
             },
             imgLoad() {
@@ -125,15 +126,4 @@
         background-color: var(--color-tint);
         color: #fff;
     }
-
-    /* .left {
-        position: relative;
-        left: 0;
-        width: 100px;
-        font-size: 18px;
-    }
-
-    .right {
-        flex: 1;
-    } */
 </style>

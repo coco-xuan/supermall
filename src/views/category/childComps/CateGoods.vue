@@ -1,7 +1,7 @@
 <template>
     <div id="cateleft">
         <div v-for='(item,index) in cateItem' class="left-item" :class='{ active: num === index}'
-            @click='itemCateClick(index)' v-haha="index">{{item.title}}</div>
+            @click='itemCateClick(index)'>{{item.title}}</div>
     </div>
 </template>
 
@@ -15,24 +15,13 @@
             }
         },
         destroyed() {
-            console.log(this.num);
-            window.localStorage.setItem('catenum', this.num)
+
+
         },
         data() {
             return {
                 isCate: false,
-                num: 0,
-
-            }
-        },
-        directives: {
-            haha: {
-                inserted(el, binding, index) {
-                    if (binding.value === window.localStorage.getItem('catenum')) {
-                        el.click();
-                        console.log(dianjile);
-                    }
-                }
+                num: 0
             }
         },
 
@@ -44,7 +33,7 @@
 
             }
         }
-    } </script>
+    }</script>
 
 <style scoped>
     #cateleft {

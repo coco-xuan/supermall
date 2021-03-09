@@ -123,9 +123,7 @@
                 // this.$store.dispatch('appCart', product).then(res => {
                 //     console.log(res);
                 // })
-
                 this.appCart(product).then(res => {
-
                     this.$toast.show(res)
                 })
             }
@@ -134,9 +132,7 @@
             this.iid = this.$route.params.iid;
             getDetial(this.iid).then(res => {
                 // 1.获取顶部的图片
-
                 const data = res.result
-
                 this.topImages = data.itemInfo.topImages
                 // console.log(this.topImages);
                 //2.获取商品信息
@@ -175,7 +171,6 @@
                     this.themsTopYs.push(this.$refs.comment.$el.offsetTop)
                     this.themsTopYs.push(this.$refs.list.$el.offsetTop)
                     this.themsTopYs.push(Number.MAX_VALUE)
-
                     // console.log(this.themsTopYs);
                 }, 100)
 

@@ -7,14 +7,14 @@ export const imgLoadMix = {
             itemImagload: null,
             refresh: null
         }
-    }
-    ,
+    },
     mounted() {
-        this.refresh = debounce(this.$refs.scroll.refresh, 0)
+        this.refresh = debounce(this.$refs.scroll.refresh, 100)
         this.itemImagload = () => {
             this.refresh();
         }
         this.$bus.$on('loadOver', this.itemImagload)
+
     }
 }
 export const backTop = {
@@ -26,10 +26,6 @@ export const backTop = {
     methods: {
         backClick() {
             this.$refs.scroll.scrollTo(0, 0)
-
         }
-
-
-
     }
 }
